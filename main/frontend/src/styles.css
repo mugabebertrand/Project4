@@ -1,0 +1,114 @@
+/* ---------- Global Colors & Variables ---------- */
+:root {
+  --bg: #0b0f14;         /* background color */
+  --card: #121820;       /* card background */
+  --text: #e5eef7;       /* main text */
+  --muted: #9fb3c8;      /* muted/secondary text */
+  --accent: #4ea8de;     /* buttons and highlights */
+}
+
+/* ---------- Reset & Global Styles ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ---------- Navbar ---------- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 12px;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+.brand {
+  font-weight: 700;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  background: var(--accent);
+  color: #001018;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ---------- Page Layout ---------- */
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ---------- Card Containers ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 18px;
+  max-width: 460px;
+  margin-bottom: 16px;
+}
+
+/* ---------- Forms ---------- */
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+input,
+textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0f141a;
+  color: var(--text);
+}
+
+/* ---------- Error Messages ---------- */
+.error {
+  background: #2a1113;
+  color: #ffb4b4;
+  border: 1px solid #5f1a1f;
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+/* ---------- Dashboard Layout ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 18px;
+}
+
+/* ---------- Sidebar Scroll ---------- */
+.scroll {
+  max-height: 70vh;
+  overflow: auto;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding-right: 12px;
+}
