@@ -3,16 +3,13 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/Project4/',          // <- EXACT repo name
 
-  // IMPORTANT for GitHub Pages
-  base: '/Project4/',
-
-  // Dev server only (local development)
   server: {
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000', // your Node/Express backend in dev
+        target: 'http://localhost:3000',
         changeOrigin: true,
         secure: false
       }
