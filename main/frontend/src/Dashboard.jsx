@@ -34,9 +34,9 @@ function Dashboard({ user }) {
     setLoadingQ(true)
     getQuestionsByCategory(selectedCat)
       .then(({ data }) => {
-        const list = Array.isArray(data) ? data : (data.items || [])
+        const list = Array.isArray(data) ? data : []
         setQuestions(list)
-        setSelectedQ(list.length ? list[0]._id : null)
+        setSelectedQ(list.length ? list[0].id : null)
       })
       .catch(() => setError('Failed to load questions'))
       .finally(() => setLoadingQ(false))
@@ -58,9 +58,8 @@ function Dashboard({ user }) {
       await postQuestion(selectedCat, newQuestion.trim())
       setNewQuestion('')
       const { data } = await getQuestionsByCategory(selectedCat)
-      const list = Array.isArray(data) ? data : (data.items || [])
-      setQuestions(list)
-      if (list.length) setSelectedQ(list[0]._id)
+      setQuestions(data)
+      if (data.length) setSelectedQ(data[0].id)
     } catch (err) {
       setError(err?.response?.data?.message || 'Failed to post question')
     }
@@ -73,7 +72,7 @@ function Dashboard({ user }) {
       await postAnswer(selectedQ, newAnswer.trim())
       setNewAnswer('')
       const { data } = await getAnswersByQuestion(selectedQ)
-      setAnswers(Array.isArray(data) ? data : [])
+      setAnswers(data)
     } catch (err) {
       setError(err?.response?.data?.message || 'Failed to post answer')
     }
@@ -108,7 +107,7 @@ function Dashboard({ user }) {
         </aside>
 
         <main>
-          <h3>{selectedCat ? `Questions — ${catName}` : 'Select a Category to view its questions'}</h3>
+          <h3>{selectedCat ? `Questions — ${catName}` : 'Select a Category'}</h3>
 
           {selectedCat && (
             <form onSubmit={handleAsk} className="card" style={{ marginBottom: 16 }}>
@@ -128,17 +127,16 @@ function Dashboard({ user }) {
           {!loadingQ && questions.length === 0 && selectedCat && <p>No questions yet.</p>}
           {!loadingQ && questions.map(q => (
             <article
-              key={q._id}
+              key={q.id}
               className="card"
-              onClick={() => setSelectedQ(q._id)}
+              onClick={() => setSelectedQ(q.id)}
               style={{
                 marginBottom: 12,
-                border: selectedQ === q._id ? '1px solid var(--accent)' : undefined,
+                border: selectedQ === q.id ? '1px solid var(--accent)' : undefined,
                 cursor: 'pointer'
               }}
             >
               <h4 style={{ marginTop: 0 }}>{q.title}</h4>
-              {q.body ? <p>{q.body}</p> : null}
             </article>
           ))}
         </main>

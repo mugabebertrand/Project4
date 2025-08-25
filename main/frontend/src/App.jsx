@@ -4,7 +4,7 @@ import Navbar from './Navbar.jsx'
 import Login from './Login.jsx'
 import Signup from './Signup.jsx'
 import Dashboard from './Dashboard.jsx'
-import api from './api.js'
+import { login as apiLogin, signup as apiSignup } from './api.js'
 
 function Protected({ children }) {
   const token = localStorage.getItem('token')
@@ -21,7 +21,7 @@ export default function App() {
   }, [])
 
   const handleLogin = async (email, password) => {
-    const { data } = await api.post('/api/auth/login', { email, password })
+    const { data } = await apiLogin(email, password)
     localStorage.setItem('token', data.token)
     localStorage.setItem('profile', JSON.stringify(data.user))
     setUser(data.user)
@@ -29,7 +29,7 @@ export default function App() {
   }
 
   const handleSignup = async (name, email, password) => {
-    const { data } = await api.post('/api/auth/signup', { name, email, password })
+    const { data } = await apiSignup(name, email, password)
     localStorage.setItem('token', data.token)
     localStorage.setItem('profile', JSON.stringify(data.user))
     setUser(data.user)
@@ -67,8 +67,8 @@ export default function App() {
 function Home() {
   return (
     <div className="page">
-      <h1>Project 4 </h1>
-      <p>A minimal React frontend for my 3-tier  project 4.</p>
+      <h1>Project 4</h1>
+      <p>A minimal React frontend for my 3-tier Project 4.</p>
       <p>
         <Link className="btn" to="/signup">Get Started</Link>
       </p>
