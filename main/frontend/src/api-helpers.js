@@ -1,4 +1,4 @@
-// src/api-helpers.js
+
 import api from './api.js';
 
 export const getCategories = () => api.get('/api/categories');

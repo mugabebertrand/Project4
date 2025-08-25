@@ -1,13 +1,13 @@
-/* ---------- Global Colors & Variables ---------- */
+
 :root {
-  --bg: #0b0f14;         /* background color */
-  --card: #121820;       /* card background */
-  --text: #e5eef7;       /* main text */
-  --muted: #9fb3c8;      /* muted/secondary text */
-  --accent: #4ea8de;     /* buttons and highlights */
+  --bg: #0b0f14;        
+  --card: #121820;      
+  --text: #e5eef7;       
+  --muted: #9fb3c8;      
+  --accent: #4ea8de;     
 }
 
-/* ---------- Reset & Global Styles ---------- */
+
 * {
   box-sizing: border-box;
 }
@@ -19,7 +19,7 @@ body {
   color: var(--text);
 }
 
-/* ---------- Navbar ---------- */
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -43,7 +43,7 @@ nav a:hover {
   font-weight: 700;
 }
 
-/* ---------- Buttons ---------- */
+
 .btn {
   background: var(--accent);
   color: #001018;
@@ -54,14 +54,14 @@ nav a:hover {
   font-weight: 600;
 }
 
-/* ---------- Page Layout ---------- */
+
 .page {
   max-width: 960px;
   margin: 0 auto;
   padding: 24px;
 }
 
-/* ---------- Card Containers ---------- */
+
 .card {
   background: var(--card);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -71,7 +71,7 @@ nav a:hover {
   margin-bottom: 16px;
 }
 
-/* ---------- Forms ---------- */
+
 label {
   display: grid;
   gap: 6px;
@@ -88,7 +88,7 @@ textarea {
   color: var(--text);
 }
 
-/* ---------- Error Messages ---------- */
+
 .error {
   background: #2a1113;
   color: #ffb4b4;
@@ -98,14 +98,14 @@ textarea {
   margin-bottom: 8px;
 }
 
-/* ---------- Dashboard Layout ---------- */
+
 .grid {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 18px;
 }
 
-/* ---------- Sidebar Scroll ---------- */
+
 .scroll {
   max-height: 70vh;
   overflow: auto;
