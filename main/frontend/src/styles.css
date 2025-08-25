@@ -32,7 +32,7 @@ nav {
 nav a {
   color: var(--muted);
   text-decoration: none;
-  margin-left: 12px;
+  margin-left: 13px;
 }
 
 nav a:hover {
