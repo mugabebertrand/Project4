@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-// Dev -> localhost API; Prod -> replace with your hosted API when you deploy backend
+// Dev -> localhost API; Prod -> your hosted API (must be HTTPS)
 const BASE_URL = import.meta.env.DEV
   ? 'http://localhost:3000/api'
-  : 'https://YOUR-BACKEND-DOMAIN/api'; // TODO: change to your live backend later
+  : 'https://project4-backend.onrender.com/api'; // <-- set to your real backend
 
 console.log('[API BASE]', BASE_URL);
 
